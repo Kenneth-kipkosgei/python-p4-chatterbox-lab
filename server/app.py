@@ -26,7 +26,7 @@ def messages():
         )
         db.session.add(new_message)
         db.session.commit()
-        return jsonify(new_message.to_dict()), 201
+        return jsonify(new_message.to_dict())
 
 @app.route('/messages/<int:id>', methods=['PATCH', 'DELETE'])
 def messages_by_id(id):
