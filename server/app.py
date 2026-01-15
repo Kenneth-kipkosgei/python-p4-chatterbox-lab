@@ -1,5 +1,6 @@
 from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS
+from flask_migrate import Migrate
 
 from models import db, Message
 
@@ -9,6 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
 CORS(app)
+migrate = Migrate(app, db)
 
 db.init_app(app)
 
